@@ -1,0 +1,61 @@
+   /* General page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .main {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #00ffea;
+        }
+
+        /* Card style for each section */
+        .section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #00ffea;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #00ffea;
+            color: #000;
+        }
+
+        span,
+        p,
+        li {
+            color: #ddd;
+        }
