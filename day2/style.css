@@ -1204,6 +1204,10 @@ body {
   .team-container {
     gap: 16px;
   }
+  .team-container img {
+  width: 100%;
+height: 380px;
+}
   .team-container div {
     width: 100%;
     max-width: 300px; /* center big cards */
