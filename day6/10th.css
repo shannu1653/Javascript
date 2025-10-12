@@ -1,0 +1,447 @@
+body{
+  width: 55%;
+  margin: auto;
+  border: 3px solid blue;
+  height: 100%;
+}
+
+
+.header {
+  width: 100%;
+  margin: 0px auto;
+  padding: 0px;
+  border-bottom: 2px solid green;  
+  padding: 0px 0px;         
+  background: linear-gradient(to right, bisque, pink, skyblue);
+}
+
+.secondary {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 8px;
+}
+
+.secondary h1 {
+  font-size: 25px;
+  height: 30px;
+  color: #d440a3;
+  margin: 0px;
+}
+
+.secondary h3 {
+  font-size: 16px;
+  color: #80056b;
+  margin: 0px;
+}
+
+.roll {
+    width: 100px;
+    height: 20px;
+    margin-top: 0px;
+  margin-bottom: 0px ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.pics h4{
+    margin: 0px;
+}
+.pics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0px;
+  padding: 0px 20px;
+  
+}
+
+.pics img {
+  margin-top: 0px;
+  height: 80px;
+  width: 80px;
+
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  height: 80px;
+  width: 80px;
+}
+
+.text p {
+  margin-top: 5px;
+  font-size: larger;
+  font-weight:800;
+  color: #f90202;
+}
+
+.subhead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px ;
+  margin-bottom: -11px;
+    margin-top: -24px;
+}
+
+.subhead p {
+  font-weight: bold;
+}
+
+
+
+
+.info{
+  font-size: 15px;
+  padding: 0px 18px;
+  background-color: rgb(190, 224, 226);
+      height: 170px;
+}
+.info2{
+  line-height: 10px;
+  margin-top: -9px;
+  margin-left: 2px;
+}
+.info #pink{
+  color: #a51274;
+}
+.mintable table{
+  width: 100%;
+  height: 40px;
+  background-color: rgb(190, 224, 226);
+  text-align: center;
+  margin-top: -4px;
+}
+.main{
+  background: linear-gradient(
+  135deg,
+  rgba(235, 239, 224, 0.9) 0%,
+  rgba(135, 206, 235, 0.9) 40%,
+  rgba(255, 182, 193, 0.9) 80%,
+  rgba(135, 206, 235, 0.9) 100%
+);
+
+}
+.candidate{
+  font-size: small;
+  display: flex;
+  justify-content: center;
+  font-weight: 900;
+  color: rgb(104, 9, 9);
+  margin: -10px 0px;
+}
+.co{
+  font-size: small;
+  display: flex;
+  justify-content: start;
+  font-weight: 900;
+  color: rgb(105, 10, 10);
+  margin: -11px 66px;
+}
+
+/* Center only the columns for Internal, External, Grade, Grade Points */
+.table1 td:nth-child(2),
+.table1 td:nth-child(3),
+.table1 td:nth-child(4),
+.table1 td:nth-child(5) {
+  text-align: center;
+}
+
+.table1,.table2 {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(190, 224, 226);
+}
+
+/* background image */
+
+.table1 {
+  position: relative;
+  overflow: hidden; 
+}
+
+.table1::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 150px;       
+  height: 150px;
+  transform: translate(-50%, -50%); 
+  background: url("./images/Emblem_of_Andhra_Pradesh_before_2014.svg-removebg-preview.png") center/contain no-repeat;
+  opacity: 0.6;       
+  z-index: 0;
+}
+
+.table1 * {
+  position: relative;
+  z-index: 1; 
+}
+
+
+
+
+
+.table1 table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+.table1 th,
+.table1 td,
+.table2 th,
+.table2 td {
+  border: 1px solid black;
+  padding: 5px; 
+}
+.table1 th,.table2 th{
+  font-weight: 700;
+  font-size: 15px;
+}
+.table1 td,.table2 td{
+  font-size: 13px;
+}
+#tab {
+  background-color: #bee2d5;
+}
+
+.no-bottom-border td {
+  border-bottom: none !important;
+}
+
+.no-bottom-border + tr td {
+  border-top: none !important;
+}
+.mole{
+  margin-top: 5px !important;
+  background-color: rgb(197, 231, 197);
+ width: 90%;
+  margin: auto;
+  border: 1px solid black;
+}
+.signs{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 15px;
+  width: 90%;
+  margin: auto;
+}
+.signs .stamp,.signs .sign{
+  margin-top: 36px;
+  line-height: 1px;
+  font-size: small;
+}
+.signs img{
+  margin-top: 15px;
+  height: 60px;
+  width: 60px;
+}
+#sign1{
+  margin-left: 100px;
+}
+#sign2{
+  margin-left: 90px;
+}
+footer{
+  display:flex;
+  border-top: 1px solid black ;
+}
+footer img{
+  height: 60px;
+  width: 170px;
+  margin: 0px 0px;
+  border-left: 1px solid black;
+  
+}
+.footer1{
+  font-size: small;
+  margin: 0px 0px;
+  line-height: 15px;
+}
+.footer1 p{
+  margin: 0px 0px; 
+}
+
+
+
+@media (max-width: 789px) {
+  body {
+    width: 90%;
+  }
+
+  .secondary {
+    width: 80%;
+  }
+
+  .secondary h1 {
+    font-size: 22px;
+  }
+
+  .secondary h3 {
+    font-size: 15px;
+  }
+
+  .pics img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .table1 td, .table2 td {
+    font-size: 12px;
+  }
+
+  .signs img {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+
+@media screen and (min-width:320px) and (max-width: 426px) {
+  body {
+    width: 95%;
+  }
+
+  .header {
+  padding: -4px;
+  }
+
+  .secondary {
+    width: 90%;
+    padding: 5px;
+  }
+ 
+  .secondary h1 {
+    font-size: 17px;
+  }
+
+  .secondary h3 {
+    font-size: 13px;
+    margin-top: -12px;
+  }
+  
+  .roll h4{
+    font-size: 10px;
+  }
+  
+    .table1 {
+    width: 100%;
+  }
+
+  .table1 table {
+    table-layout: fixed; 
+    width: 100%;
+  }
+
+  .table1 th {
+    font-size: 13px;
+    padding: 3px;
+    word-wrap: break-word;
+  }
+
+  .table1 td {
+    font-size: 11px;
+    padding: 3px;
+    word-wrap: break-word;
+  }
+
+  .pics {
+    justify-content: space-between;
+    flex-wrap: nowrap; 
+    margin-bottom: 4px;
+
+  }
+
+  .pics img {
+    height: 30px;
+        width: 30px;
+  }
+  .subhead p{
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .info{
+    height: 130px;
+  }
+  .info td,p,span{
+    font-size: 10px;
+  }
+  .info2{
+    margin-top: 2px;
+  }
+  .info2 p{
+    margin: 0px;
+    line-height: 1.2;
+  }
+  .mintable table{
+    height: 42px;
+    margin-top: 0px;
+  }
+  .mintable td{
+    font-size: 7px; 
+    margin: 0px;
+    padding: 0px; 
+  }
+ .candidate p{
+  font-size: 10px;
+ }
+ #tab th{
+  font-size: 7px;
+ }
+ .co p{
+  margin-left: -40px;
+ }
+ .table2 th,td{
+  font-size: 7px;
+ }
+.table2 table{
+ height: 10px;
+}
+  .text p{
+    font-size: 8px;
+  }
+  .scanner1,.scanner{
+    width: 50px;
+   
+  }
+
+  .table1 td, .table2 td {
+   font-size: 7px;
+  }
+
+  .signs {
+    flex-wrap: nowrap; 
+    width: 236px;
+    margin-top: -8px;
+  }
+  .signs p{
+    font-size: 6px;
+  }
+  .signs img {
+    height: 30px;
+    width: 30px;
+  }
+  #b{
+    margin-left: 39px;
+  }
+  #sign1{
+    margin-left: 72px;
+  }
+  #sign2{
+    margin-left: 67px;
+  }
+
+  .footer1 p {
+    font-size: 8px;
+    line-height: 1;
+  }
+  .footer2 img{
+    height: 50px;
+  }
+}
