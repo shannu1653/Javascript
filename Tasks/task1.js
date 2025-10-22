@@ -1,0 +1,1 @@
+document.writeln("this is an example for adding externel javascript file to html file")
