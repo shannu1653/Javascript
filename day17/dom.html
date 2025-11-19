@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples of dom</title>
+</head>
+<body>
+    <h2>My first Page</h2>
+    <p id="demo">hello</p>
+    <h3>Johney Johney</h3>
+    <h3>Yes Papa</h3>
+    <h3>Eating Sugar</h3>
+    <h3>No Papa</h3>
+    <button onclick="changecolor()">Click Hera</button>
+
+    <p Name="one">sundra hai to sundri</p>
+    <p name="one">sundri by to sundra</p>
+    <p name="one">rohith laugh</p>
+    <p name="one">falls love with sundri</p>
+    <button onclick="changefont()">Click hear change font size</button>
+
+    <p class="one">sundra hai to sundri</p>
+    <p class="one">sundri by to sundra</p>
+    <p class="one">rohith laugh</p>
+    <p class="one">falls love with sundri</p>
+    <button onclick="changestyle()">Click hear change fontcolor</button>
+
+    <p class="two">sundra hai to sundri.................</p>
+    <p class="two">sundri by to sundra...</p>
+    <p class="two">rohith laugh</p>
+    <p class="two">falls love with sundri</p>
+    <button onclick="changestyle()">Click hear change fontcolor</button>
+    
+
+    <script>
+       //5 important dom methods
+       //1.document.write()
+       document.write('hello welocome dom methods')
+
+        //2.document.getElementbyId
+        var b=document.getElementById("demo").innerHTML="hello bye"
+         b.style.backgroundColor='blue'
+
+        //3.document.getelementsByTagName()
+        var rhymes=document.getElementsByTagName('h3');
+        function changecolor(){
+             rhymes[0].style.color="blue"
+                //or
+            for(i=0;i<rhymes.length;i++){
+                rhymes[i].style.color='red'
+            }
+        }
+        
+
+        //4.getElementsByName()
+       var one1= document.getElementsByName('one')
+       function changefont(){
+        for( i=0;i<one1.length;i++){
+            one1[i].style.fontSize='50px';
+        }}
+       
+
+       //5.getElementsByClassName()
+       let cla_name=document.getElementsByClassName('one')
+       function changestyle(){
+        for(i=0;i<cla_name.length;i++){
+            cla_name[i].style.background='Blue'
+        }
+       }
+
+       //6.querySelector()
+       let sundra_sundri=document.querySelector('.two')
+       sundra_sundri.style.color="pink";
+
+    </script>
+</body>
+</html>

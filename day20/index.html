@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript this(), call(), apply(), bind()</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f7ff;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0055aa;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-left: 7px solid #007bff;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .output {
+            background: #eef7ff;
+            padding: 12px;
+            border-radius: 8px;
+            font-family: Consolas, monospace;
+            white-space: pre-line;
+            color: #004488;
+        }
+
+        .section-label {
+            padding: 5px 10px;
+            display: inline-block;
+            margin-top: 10px;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1>JavaScript this(), call(), apply(), bind() — Practical Demo</h1>
+
+<!-- OUTPUT GOES HERE -->
+<div id="output"></div>
+
+<script>
+    function printBox(title, result) {
+        document.getElementById("output").innerHTML += `
+            <div class="card">
+                <div class="title">${title}</div>
+                <div class="output">${result}</div>
+            </div>
+        `;
+    }
+
+    // FIRST OBJECT
+    const person = {
+        name: "shannu",
+        age: 27,
+        role: "Data analyst",
+        sal: 100000,
+
+        emp_details: function(a = this){
+            return `The Employee name is ${a.name}
+        Age: ${a.age}
+        Salary: ${a.sal}
+        Role: ${a.role}`;
+                }
+    };
+
+    const naveen = {
+        name: "naveen",
+        age: 27,
+        role: "Python developer",
+        sal: 100000,
+    };
+
+    printBox("Default this() → person.emp_details()", person.emp_details());
+    printBox("Passing argument → person.emp_details(naveen)", person.emp_details(naveen));
+
+
+    // SECOND OBJECTS
+    const emp1 = {
+        empid: 12,
+        empname: "sundra",
+        empsalary: 2000,
+
+        empdetails: function(bonus, gift){
+            return `
+        Emp ID: ${this.empid}
+        Name: ${this.empname}
+        Total Salary: ${this.empsalary + bonus}
+        Gift: ${gift}
+                    `;
+        }
+    };
+
+    const emp2 = { empid: 22, empname: "sundri", empsalary: 25000 };
+    const emp3 = { empid: 33, empname: "dinga", empsalary: 2000 };
+
+    // call()
+    printBox("call() → emp1.empdetails.call(emp2,5000,'cooker')",
+        emp1.empdetails.call(emp2, 5000, "cooker"));
+
+    printBox("Normal Call → emp1.empdetails(10000,'fanta')",
+        emp1.empdetails(10000, "fanta"));
+
+    printBox("call() → emp1.empdetails.call(emp3,5000,'maza')",
+        emp1.empdetails.call(emp3, 5000, "maza"));
+
+
+    // apply()
+    printBox("apply() → emp1.empdetails.apply(emp1,[5000,'cooker'])",
+        emp1.empdetails.apply(emp1, [5000, "cooker"]));
+
+    printBox("Normal Call → emp1.empdetails(10000,'fanta')",
+        emp1.empdetails(10000, "fanta"));
+
+    printBox("apply() → emp1.empdetails.apply(emp3,[5000,'maza'])",
+        emp1.empdetails.apply(emp3, [5000, "maza"]));
+
+
+    // bind()
+    var res = emp1.empdetails.bind(emp2, 5000, "cooker");
+
+    printBox("bind() returns a new function",
+        res.toString());
+
+    printBox("bind() executed → res()",
+        res());
+
+</script>
+
+</body>
+</html>

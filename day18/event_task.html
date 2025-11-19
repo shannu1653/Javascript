@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All JavaScript Events - Practice</title>
+</head>
+
+<body onload="welcomeMessage()">
+
+<h1>JavaScript Events - All Tasks in One Page</h1>
+
+
+<h2>Task 1: onclick Event</h2>
+<button onclick="alert('Button Clicked Successfully!')">Click Me</button>
+
+
+
+<h2>Task 2: onmouseover Event</h2>
+<div onmouseover="this.style.background='green'"
+     style="width:120px;height:120px;background:lightgray;margin-bottom:20px;">
+</div>
+
+
+<h2>Task 3: onmouseout Event</h2>
+<div onmouseover="this.style.background='red'"
+     onmouseout="this.style.background='gray'"
+     style="width:120px;height:120px;background:gray;margin-bottom:20px;">
+</div>
+
+
+
+<h2>Task 4: onfocus Event</h2>
+<input type="text" onfocus="this.style.background='yellow'"
+       placeholder="Click inside to highlight">
+
+
+
+<h2>Task 5: onsubmit Event</h2>
+<form onsubmit="return checkForm()">
+    <input id="nameInput" type="text" placeholder="Enter your name">
+    <button type="submit">Submit</button>
+</form>
+
+
+
+<script>
+function welcomeMessage() {
+    alert("Welcome! Page Loaded Successfully.");
+}
+</script>
+
+
+
+<h2>Task 7: onchange Event</h2>
+<select onchange="alert('You selected: ' + this.value)">
+    <option value="">Select a topic</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+
+
+
+<h2>Task 8: Combined Events Mini Project</h2>
+
+
+<p>Select Topic (onchange):</p>
+<select onchange="alert('Selected: ' + this.value)">
+    <option value="">Choose one</option>
+    <option value="HTML">HTML</option>
+    <option value="CSS">CSS</option>
+    <option value="JavaScript">JavaScript</option>
+</select>
+
+<br><br>
+
+
+<form onsubmit="return validateForm()">
+
+    <!-- Input with onfocus -->
+    <input type="text" id="mainInput" placeholder="Focus to change color"
+           onfocus="this.style.background='lightyellow'">
+
+    <br><br>
+
+    <!-- Button with mouse events -->
+    <button type="submit"
+            onmouseover="this.style.background='green'"
+            onmouseout="this.style.background='blue'"
+            style="background:blue;color:white;padding:10px;border:none;">
+        Submit
+    </button>
+</form>
+
+<script>
+function checkForm() {
+    let name = document.getElementById("nameInput").value;
+    if (name === "") {
+        alert("Name is required");
+        return false;
+    }
+    alert("Form Submitted Successfully!");
+    return true;
+}
+
+function validateForm() {
+    let v = document.getElementById("mainInput").value;
+    if (v === "") {
+        alert("Please enter something!");
+        return false;
+    }
+    alert("Form Submitted Successfully!");
+    return true;
+}
+</script>
+
+</body>
+</html>

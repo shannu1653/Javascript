@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Task</title>
+</head>
+<body>
+    <h4>To see the secret message click button</h4>
+    <button id="button" onclick="surprise()">Click button</button>
+    <p id="para" style="display: none;">Surprise guys!</p>
+    
+    <script>
+        var btn = document.getElementById("button");
+        var text = document.getElementById("para");
+        function surprise() {
+            text.style.display = "block"; 
+        }
+    </script>
+</body>
+</html>

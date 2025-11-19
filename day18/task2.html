@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Interaction</title>
+    <style>
+        body {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .box:hover {
+            transform: scale(1.2);
+        }
+
+        .clicked {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onmouseover="grow(this)" onmouseout="shrink(this)" onclick="changeColor(this)"></div>
+    <div class="box" onmouseover="grow(this)" onmouseout="shrink(this)" onclick="changeColor(this)"></div>
+    <div class="box" onmouseover="grow(this)" onmouseout="shrink(this)" onclick="changeColor(this)"></div>
+    <div class="box" onmouseover="grow(this)" onmouseout="shrink(this)" onclick="changeColor(this)"></div>
+
+    <script>
+        function grow(box) {
+            box.style.transform = "scale(1.2)";
+        }
+
+        function shrink(box) {
+            box.style.transform = "scale(1)";
+        }
+
+        function changeColor(box) {
+            box.classList.toggle("clicked");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exericese for prompt</title>
+</head>
+<body>
+    <script>
+     /*let name = prompt("What is your name?");
+     alert("Hello, " + name + "!");*/
+    
+//2.Prompt with default value
+     /*let color = prompt("Enter your favorite color:", "Blue");
+     alert("Your favorite color is " + color);*/
+
+//3.Prompt & Type Conversion
+    /*let num1=prompt('Enter first number : ')
+    let num2=prompt('Enter second number :')
+    //convert to numbers
+    let sum=Number(num1) + Number(num2)
+    alert('Sum is :'+sum)*/
+
+//4.Prompt in conditional Logic
+    /*let age = prompt("Enter your age:");
+    age = Number(age);
+
+    if (age >= 18) {
+    alert("You are an adult.");
+    } else {
+    alert("You are not an adult yet.");
+    }*/
+
+//5.Advanced: Prompt for Yes/No Confirmation
+   let answer = prompt("Do you like JavaScript? (yes/no)").toLowerCase();
+
+    if (answer === "yes") {
+    alert("Awesome! Keep learning!");
+    } else if (answer === "no") {
+    alert("No worries, try exploring it later!");
+    } else {
+    alert("Please answer with yes or no!");
+    }
+
+
+</script>
+
+</body>
+</html>
+
+<!-- 💡 Key Notes About prompt()
+
+Always returns a string. Convert to number if needed.
+
+Can use default value as a second argument.
+
+Works well for small demos or teaching but not recommended for production (use HTML forms instead).
+
+prompt() pauses execution until user enters something. -->

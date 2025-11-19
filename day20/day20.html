@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this method</title>
+</head>
+<body>
+    <p id="para"></p>
+    <script>
+         const person={
+            name:"shannu",
+            age:27,
+            role:"Data analyst",
+            sal:100000,
+            emp_details:function(a=this){
+                return `the empname is ${a.name} and ${a.age} year old and his salary is ${a.sal},working as ${a.role}`
+            }
+         }
+        console.log(person.emp_details())
+        const naveen={
+            name:"naveen",
+            age:27,
+            role:"Python developer",
+            sal:100000,
+        }
+        console.log(person.emp_details(naveen))
+        
+
+
+        const emp1={
+            empid:12,
+            empname:"sundra",
+            empsalary:2000,
+            empdetails:function(bonus,gift){
+                console.log('The total salary along with the bonus is :',this.empsalary + bonus,"and the gift they got is :",gift)
+                return `the empid : ${this.empid},empname : ${this.empname},emsalary : ${this.empsalary + bonus}`
+            }
+        }
+        const emp2={
+            empid:22,
+            empname:"sundri",
+            empsalary:25000
+        }
+        
+         const emp3={
+            empid:22,
+            empname:"dinga",
+            empsalary:2000
+        }
+    //     /////call()////////
+       console.log(emp1.empdetails.call(emp2,5000,"cooker"))
+       console.log(emp1.empdetails(10000,'fanta'))
+       console.log(emp1.empdetails.call(emp3,5000,"maza"))
+
+
+
+    ///////////apply()/////////
+    console.log(emp1.empdetails.apply(emp1,[5000,"cooker"]))
+    console.log(emp1.empdetails(10000,"fanta"))
+    console.log(emp1.empdetails.apply(emp3,[5000,"maza"]))
+
+    ////////////bind()//////////////
+    var res=emp1.empdetails.bind(emp2,5000,"cooker")
+    console.log(res) //print fnction
+    console.log(res()) //prints actual result
+    console.log(setTimeout(res, 3000))
+    
+
+
+
+    </script>
+</body>
+</html>

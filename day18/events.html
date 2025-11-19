@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple JavaScript Events</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #e0f2fe; /* Light soft blue */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .box-area {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            color: #334155;
+        }
+
+        .box {
+            width: 70px;
+            height: 70px;
+            background: #7dd3fc;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        input {
+            padding: 8px;
+            margin: 6px 0;
+            width: 90%;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+        }
+
+        button {
+            padding: 8px 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #93c5fd;
+            cursor: not-allowed;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: green;
+            font-weight: bold;
+        }
+
+        #taskList li {
+            margin: 6px 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ========================= -->
+    <h2>Task 1: Show & Hide Text</h2>
+
+    <button id="toggleBtn">Hide</button>
+    <p id="para">This is a sample paragraph.</p>
+
+    <hr>
+
+    <!-- ========================= -->
+    <h2>Task 2: Hover & Click Boxes</h2>
+
+    <div class="box-area">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <hr>
+
+    <!-- ========================= -->
+    <h2>Task 3: Input Check</h2>
+
+    <input class="nameInput" type="text" placeholder="Type something...">
+    <input class="nameInput" type="text" placeholder="Type something...">
+    <input class="nameInput" type="text" placeholder="Type something...">
+
+<p id="msg"></p>
+
+    <hr>
+
+    <!-- ========================= -->
+    <h2>Task 4: Simple Form</h2>
+
+    <form id="myForm">
+        <input id="fname" type="text" placeholder="Your Name">
+        <input id="femail" type="text" placeholder="Your Email">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="formMsg" style="font-weight:bold;"></p>
+
+    <hr>
+
+    <!-- ========================= -->
+    <h2>Task 5: Theme Changer</h2>
+
+    <label><input type="radio" name="theme" value="Light"> Light</label>
+    <label><input type="radio" name="theme" value="Dark"> Dark</label>
+
+    <p id="themeMsg"></p>
+
+    <hr>
+
+    <!-- ========================= -->
+    <h2>Task 6: Add Tasks</h2>
+
+    <ul id="taskList">
+        <li>Sample Task</li>
+    </ul>
+
+    <input id="newTask" type="text" placeholder="New Task">
+    <button id="addBtn" disabled>Add Task</button>
+
+</div>
+
+
+<script>
+// --------------------
+// TASK 1
+// --------------------
+let btn = document.getElementById("toggleBtn");
+let para = document.getElementById("para");
+
+btn.onclick = function () {
+    if (para.style.display === "none") {
+        para.style.display = "block";
+        btn.textContent = "Hide";
+    } else {
+        para.style.display = "none";
+        btn.textContent = "Show";
+    }
+};
+
+
+// --------------------
+// TASK 2
+// --------------------
+let allBoxes = document.getElementsByClassName("box");
+
+for (let box of allBoxes) {
+    box.onmouseover = function () {
+        box.style.transform = "scale(1.2)";
+    };
+
+    box.onmouseout = function () {
+        box.style.transform = "scale(1)";
+    };
+
+    box.onclick = function () {
+        box.style.background = "#fb923c";
+    };
+}
+
+
+// --------------------
+// TASK 3
+// --------------------
+let inputs = document.getElementsByClassName("nameInput");
+let msg = document.getElementById("msg");
+
+for (let i = 0; i < inputs.length; i++) {
+    inputs[i].onchange = function () {
+        if (this.value.trim().length < 3) {
+            msg.textContent = "Please enter at least 3 characters.";
+            msg.style.color = "red";
+        } else {
+            msg.textContent = "Looks good!";
+            msg.style.color = "green";
+        }
+    };
+}
+
+
+
+// --------------------
+// TASK 4
+// --------------------
+let myForm = document.getElementById("myForm");
+let formMsg = document.getElementById("formMsg");
+
+myForm.onsubmit = function (event) {
+    event.preventDefault();
+
+    let n = document.getElementById("fname").value;
+    let e = document.getElementById("femail").value;
+
+    if (n === "") {
+        formMsg.textContent = "Name is required!";
+        return;
+    }
+
+    if (!e.includes("@")) {
+        formMsg.textContent = "Invalid email!";
+        return;
+    }
+
+    formMsg.textContent = "Form submitted successfully!";
+    myForm.reset();
+};
+
+
+// --------------------
+// TASK 5
+// --------------------
+let radios = document.getElementsByName("theme");
+let themeMsg = document.getElementById("themeMsg");
+
+for (let r of radios) {
+    r.onchange = function () {
+        themeMsg.textContent = "Theme selected: " + this.value;
+
+        if (this.value === "Dark") {
+            document.body.style.background = "#1e1e1e";
+            document.body.style.color = "black";
+        }
+        else {
+            document.body.style.background = "#e0f2fe";
+            document.body.style.color = "black";
+        }
+    };
+}
+
+
+// --------------------
+// TASK 6
+// --------------------
+let list = document.getElementById("taskList");
+let newTask = document.getElementById("newTask");
+let addBtn = document.getElementById("addBtn");
+
+newTask.oninput = function () {
+    addBtn.disabled = newTask.value.length < 3;
+};
+
+addBtn.onclick = function () {
+    let li = document.createElement("li");
+    li.textContent = newTask.value;
+
+    li.onclick = function () {
+        li.classList.add("done");
+    };
+
+    list.appendChild(li);
+    newTask.value = "";
+    addBtn.disabled = true;
+};
+</script>
+
+</body>
+</html>

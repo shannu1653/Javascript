@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="one">sundra hai to sundri</h1>
+    <p class="one1">sundri by to sundra</p>
+    <p id="one">rohith laugh</p>
+    <button onclick="changestyle()" disabled>Click hear change fontcolor</button>
+
+
+    <h1 class="two">sundra hai to sundri</h1>
+    <p class="two">sundri by to sundra</p>
+    <p class="two">rohith laugh</p>
+    <button onclick="changestyle1()">Click hear change fontcolor</button>
+
+    <script>
+        function changestyle() {
+            var elements = document.querySelector(".one").innerHTML = "shannu hai to sundri";
+            var elements1 = document.querySelector(".one1");
+            elements1.style.color="blue";
+            var elements2 = document.querySelector("#one");
+            elements2.style.fontSize = "40px";   
+        }
+        function changestyle1(){
+                    var ele1=document.querySelectorAll(".two");
+                    ele1.forEach(elem => {
+                        elem.style.color='pink';
+                        elem.style.border="2px solid black"
+                    });
+                }
+
+        //example for setattribute
+       /* var daytoday=document.getElementById("one")
+        daytoday.setAttribute("class","date")
+        var days=document.getElementsByClassName('date')
+        for (var i = 0; i < days.length; i++) {
+            days[i].style.color = "red";
+        }
+        var daytoday=document.getElementById("one")
+        daytoday.setAttribute("class","date")
+        var days=document.querySelector('.date')
+        days.style.color="red"*/
+
+
+
+        //getattribute
+        var element = document.getElementById("one");
+        var className = element.getAttribute("class");
+        var id = element.getAttribute("id");
+        console.log("Class: " + className);
+        console.log("ID: " + id);
+
+
+        //removeAttribute example
+        var btn=document.querySelector("button")
+        btn.removeAttribute("disabled")
+
+        //appendchild()
+        var head=document.getElementById('h1')
+        head.innerHTML="hii everyone"
+        document.body.appendChild(head)
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Alert Sequence</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #121212;
+      color: white;
+      margin-top: 100px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Custom alert box style */
+    .alert-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #1e1e1e;
+      color: #fff;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      z-index: 1000;
+      font-size: 18px;
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Close button */
+    .close-btn {
+      margin-top: 20px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      background-color: #ff3333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>✨ JavaScript Custom Alert Sequence ✨</h2>
+  <p>Click below to see cool custom alerts!</p>
+  <button onclick="startSequence()">Start Sequence</button>
+
+  <!-- Custom alert box -->
+  <div id="customAlert" class="alert-box">
+    <p id="alertMessage"></p>
+    <button class="close-btn" onclick="closeAlert()">OK</button>
+  </div>
+
+  <script>
+    function showAlert(message) {
+      document.getElementById("alertMessage").innerText = message;
+      document.getElementById("customAlert").style.display = "block";
+    }
+
+    function closeAlert() {
+      document.getElementById("customAlert").style.display = "none";
+    }
+
+    function startSequence() {
+      // Step 1
+      showAlert("👋 Hey there! Welcome to JavaScript land!");
+
+      // Step 2 (after 1.5 seconds)
+      setTimeout(function() {
+        showAlert("💡 Tip: alert() and window.alert() do the same thing!");
+      }, 1500);
+
+      // Step 3 (after 3 seconds)
+      setTimeout(function() {
+        showAlert("🚀 You're now ready to explore more JavaScript magic!");
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<body>
+    <h2 id="title">Welcome</h2>
+
+    <p class="item">Apple</p>
+    <p class="item">Orange</p>
+    <p class="item">Banana</p>
+
+    <h3>One</h3>
+    <h3>Two</h3>
+
+    <input type="radio" name="gender" value="male">
+    <input type="radio" name="gender" value="female">
+    <button onclick="checkGender()">Submit</button>
+    <script>
+        document.getElementById('title').style.color='red';
+       
+        let fruits=document.getElementsByClassName('item');
+        for(i=0;i<fruits.length;i++){
+            fruits[i].style.background='yellow'
+        }
+        
+      
+        let tag=document.getElementsByTagName('h3')
+        for(i=0;i<tag.length;i++){
+            tag[i].style.color='blue';
+        }
+   
+       function checkGender(){
+            let g=document.getElementsByName("gender");
+            for(i=0;i<g.length;i++){
+                if(g[i].checked){
+                    alert("Gender is: "+g[i].value)
+                }
+            }
+            }
+
+    </script>
+</body>
+</html>
