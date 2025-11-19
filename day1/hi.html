@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light On/Off</title>
+  <style>
+    img {
+      width: 150px;
+      transition: 0.3s;
+    }
+    .on {
+      filter: brightness(1.9) saturate(2) drop-shadow(0 0 10px yellow);
+    }
+  </style>
+</head>
+<body style="text-align:center; margin-top:50px;">
+  <h2>Click to Turn Light On/Off</h2>
+
+  <img id="myImage" src="lightbulb_off1.png" alt="Light Bulb">
+
+  <br><br>
+
+  <button onclick="document.getElementById('myImage').classList.add('on')">
+    Turn On
+  </button>
+
+  <button onclick="document.getElementById('myImage').classList.remove('on')">
+    Turn Off
+  </button>
+</body>
+</html>

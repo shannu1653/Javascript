@@ -43,7 +43,12 @@
       margin: 15px 0;
       transition: 0.3s ease;
     }
-
+   #on{
+    border: 2px solid red;
+    width:100px;
+    height: 100px;
+    filter: brightness(1.5) saturate(2) drop-shadow(0 0 25px yellow);
+   }
 
     @media (max-width: 768px) {
       h2 {
@@ -70,6 +75,7 @@
         width: 100px;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -81,8 +87,9 @@
 
   <img id="myImage" src="lightbulb_off.jpg" alt="Light Bulb">
 
-  <button onclick="document.getElementById('myImage').src='yellow-light-bulb-with-clear-plastic-cover_979520-167947.jpg'">
-    Turn on the light
-  </button>
+  <button onclick="document.getElementById('myImage').src='yellow-light-bulb-with-clear-plastic-cover_979520-167947.jpg'" >
+  Turn on the light
+</button>
+
 </body>
 </html>
