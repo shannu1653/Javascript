@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BOM Example</title>
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+.box {
+    padding: 15px;
+    background: #f0f0f0;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+button{
+    padding:10px 20px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+</style>
+</head>
+<body>
+
+<h2>BOM Example</h2>
+<div class="box" id="output"></div>
+
+<!-- 1.window Alert -->
+<button onclick="window.alert('Welcome User!')">Show Alert</button>
+
+
+<!-- 2.open new window -->
+<button onclick="window.open('https://google.com','_blank')">Open Google</button>
+
+<!-- 3.Close window -->
+<button onclick="window.close()">Close This Window</button>
+
+<!-- 4.Print page -->
+<button onclick="window.print()">Print this page</button>
+
+<!-- 1.char support window -->
+<button onclick="openChat()">Open Support Chat</button>
+
+<!-- 3. Auto Focus on Login Page -->
+<input id="email" placeholder="Enter Email">
+
+<script>
+
+// 5.Show window Size
+document.write("Width: " + window.innerWidth + " ,");
+document.write("Height: " + window.innerHeight);
+
+// 1.char support window
+function openChat(){
+    window.open("chat.html", "chat", "width=400,height=500");
+}
+
+
+//2.Auto close popup
+let popup = window.open("", "", "width=200,height=200");
+popup.document.write("Closing in 3 seconds...");
+setTimeout(()=>popup.close(), 3000);
+
+// 3. Auto Focus on Login Page
+window.onload = () => document.getElementById("email").focus();
+
+// 4. Detect If Window Is big (Responsive)
+if(window.innerWidth > 160){
+    document.body.style.background = "lightyellow";
+}
+
+// 5. Detect Tab Change
+document.addEventListener("visibilitychange", ()=>{
+    if(document.hidden){
+        console.log("User switched tab");
+    } else {
+        console.log("User is back");
+    }
+});
+
+</script>
+
+</body>
+</html>
