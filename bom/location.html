@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BOM Example</title>
+<style>
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+.box {
+    padding: 15px;
+    background: #f0f0f0;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+button{
+    padding:10px 20px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{
+    background:#0056b3;
+}
+</style>
+</head>
+<body>
+
+<h2>BOM Example</h2>
+<div class="box" id="output"></div>
+<!-- ✅ 2. Redirect to Another Page -->
+<button onclick="location.href='https://youtube.com'">Go to YouTube</button>
+
+<!-- ✅ 3. Refresh Page -->
+ <button onclick="location.reload()">Reload</button>
+
+<!-- ✅ 4. Replace URL (No Back Button) -->
+<button onclick="location.replace('window.html')">Replace Page</button>
+
+<!-- ✅ 5. Assign New Page (back button is ther)-->
+<button onclick="location.assign('window.html')">Go to Products</button>
+
+
+
+<script>
+// JS CODE COMES HERE
+// ✅ 1. Show Current URL
+document.write(location.href);
+
+// 🌍 1. Redirect After Login
+// setTimeout(()=>location.href="window.html", 2000);
+
+// 🌍 2. Auto Refresh Dashboard
+setInterval(()=>location.reload(), 5000);
+
+
+// 🌍 3. Detect Referral Code
+const p = new URLSearchParams(location.search);
+document.write("Referrer: " + p.get("ref"));
+
+
+// 🌍 4. Detect Country Language
+if(navigator.language === "hi-IN"){
+    location.href="home-hindi.html";
+}
+</script>
+
+</body>
+</html>
