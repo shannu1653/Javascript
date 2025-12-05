@@ -55,12 +55,12 @@
 
 
 
-    ///////////apply()/////////
+    ////////apply()/////
     console.log(emp1.empdetails.apply(emp1,[5000,"cooker"]))
     console.log(emp1.empdetails(10000,"fanta"))
     console.log(emp1.empdetails.apply(emp3,[5000,"maza"]))
 
-    ////////////bind()//////////////
+    ////////bind()////
     var res=emp1.empdetails.bind(emp2,5000,"cooker")
     console.log(res) //print fnction
     console.log(res()) //prints actual result
