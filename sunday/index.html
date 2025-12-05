@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practising</title>
+</head>
+<body>
+    <div id="msg"></div>
+
+    <div id="screen" style="font-size: 24px; font-family: monospace;"></div>
+
+<button onclick="pauseTyping()">Pause</button>
+<button onclick="resumeTyping()">Resume</button>
+<button onclick="restartTyping()">Restart</button>
+    <script>
+        //1.pop up message
+        /*setTimeout(() => {
+            alert('hello frineds this is an pop an message')
+        }, 3000);*/
+        
+        //2.change background
+        /*setTimeout(() => {
+            document.body.style.background='lightblue'
+        }, 2000);*/
+
+        //3.Simulate loading screen
+        /*console.log("loading....")
+        setTimeout(() => {
+            console.log("Data Loaded!")
+        }, 3000);*/
+
+        //4.show typing animations
+        /*setTimeout(() => {
+            document.getElementById("msg").innerText="Typing...."
+        }, 1000);*/
+
+        // //setTimeout inside loops
+        // for(var i=1;i>=3;i++){
+        //     setTimeout(()=>console.log(i),1000)
+        // }
+
+
+let text = "Hello World! Welcome to the Typing Animation App.";
+let index = 0;
+let speed = 120;
+let timer = null;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.getElementById("screen").innerHTML += text[index];
+        index++;
+
+        timer = setTimeout(typeWriter, speed);
+    }
+}
+
+// Pause
+function pauseTyping() {
+    clearTimeout(timer);
+}
+
+// Resume
+function resumeTyping() {
+    typeWriter();
+}
+
+// Restart
+function restartTyping() {
+    clearTimeout(timer);
+    index = 0;
+    document.getElementById("screen").innerHTML = "";
+    typeWriter();
+}
+
+
+
+
+
+
+    </script>
+</body>
+</html>
