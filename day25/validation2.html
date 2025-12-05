@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+</head>
+<body onload="buttoncolor()"> 
+    <form name="myform" onsubmit="return FormValidation()">
+        Name : <input type="text" name="username"><br><br>
+
+        Password : <input type="password" name="password1"> <br><br>
+
+        Re-Entered Password : <input type="password" name="password2"> <br><br>
+
+        <input type="submit" value="Login" name="btn">
+    </form>
+
+    <script>
+        function FormValidation(){
+            var name = document.myform.username.value;
+            var password1 = document.myform.password1.value;
+            var password2 = document.myform.password2.value;
+
+            if(name == null || name == ""){
+                alert("Username is required");
+                return false;
+            }
+            else if(password1 == null || password1 == ""){
+                alert("Password1 is not filled");
+                return false;
+            }
+            else if(password2 == null || password2 == ""){
+                alert("Re-enter Password is not filled");
+                return false;
+            }
+            else if(password1 !== password2){
+                alert("Passwords do not match");
+                return false;
+            }
+            else{
+                alert("Logged in successfully");
+                return true;
+            }
+        }
+
+        function buttoncolor(){
+            var btn1 = document.getElementsByName("btn");
+            btn1[0].style.color = "green";
+        }
+    </script>
+</body>
+</html>
