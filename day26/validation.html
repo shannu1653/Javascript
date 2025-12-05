@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+<style>
+
+/* ===================== GALAXY BACKGROUND ====================== */
+
+body {
+    margin: 0;
+    padding: 40px 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-y: auto;
+
+    background: linear-gradient(135deg, #67c6da, #004c87, #9100a8, #2121cd);
+    background-size: 850% 190%;
+    animation: perfectDiagonal 8s linear infinite;
+
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes perfectDiagonal {
+    0% { background-position: 0% 100%; }
+    100% { background-position: 100% 0%; }
+}
+
+/* ===================== STAR LAYERS ====================== */
+
+#stars, #stars2, #stars3, #nebula, #shooting-star {
+    position: fixed; 
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#stars { background: url("https://i.imgur.com/3KXqPCC.png") repeat; animation: starmove 60s linear infinite; }
+#stars2 { background: url("https://i.imgur.com/3KXqPCC.png") repeat; opacity:.6; animation: starmove 100s linear infinite; }
+#stars3 { background: url("https://i.imgur.com/3KXqPCC.png") repeat; opacity:.3; animation: starmove 150s linear infinite; }
+
+@keyframes starmove {  
+    0% { background-position: 0 0; }  
+    100% { background-position: -2000px 2000px; }  
+}
+
+#nebula {
+    background:url("https://i.imgur.com/a9kVx6O.png");
+    background-size:cover;
+    opacity:.2;
+    animation:fogmove 50s ease-in-out infinite alternate;
+}
+
+@keyframes fogmove {  
+    0% { transform:scale(1.2); }  
+    100% { transform:scale(1.5); }  
+}
+
+/* ===================== FORM ====================== */
+
+form {
+    width: 420px;
+    padding: 35px;
+    border-radius: 22px;
+    height: 90vh;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 55px rgba(255,0,200,0.35);
+
+    animation: floatUp 6s infinite ease-in-out;
+    transition:.4s;
+
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% { transform:translateY(0); }
+    50% { transform:translateY(-10px); }
+    100% { transform:translateY(0); }
+}
+
+h1 {
+    text-align:center;
+    color:#ffd6ff;
+    font-size:28px;
+    margin-top:0;
+    text-shadow:0 0 10px #ff00ff;
+}
+
+
+#course{
+    background-color: #a502be;
+}
+/* ===================== LABELS ====================== */
+
+label {
+    font-size:17px;
+    color:#ffe4ff;
+    font-weight:bold;
+    font-family:Cambria;
+}
+
+/* ===================== INPUTS ====================== */
+
+input[type="text"], input[type="password"],
+input[type="email"], textarea, select {
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    margin-top: 5PX;
+
+    background:rgba(255,255,255,0.10);
+    border:2px solid rgba(255,0,255,0.3);
+    border-radius:12px;
+
+    font-size:18px;
+    color:white;
+
+    animation: neonGlow 3s infinite alternate ease-in-out;
+}
+
+@keyframes neonGlow {
+    0% { box-shadow:0 0 10px #550088; }
+    100% { box-shadow:0 0 20px #ff00ff; }
+}
+
+input:focus, textarea:focus, select:focus {
+    box-shadow:0 0 20px #ff00ff;
+    border-color:#ff00ff;
+    transform:scale(1.04);
+}
+
+textarea { height:70px; }
+
+/* ===================== ERROR ====================== */
+
+.error_message {
+    color:#ff0000;
+    font-size:16px;
+    animation: shake 0.21s;
+}
+
+@keyframes shake {
+    25% { transform:translateX(-3px); }
+    50% { transform:translateX(3px); }
+}
+
+/* ===================== CHECKBOX ====================== */
+
+#agree { transform:scale(1.2); }
+
+/* ===================== BUTTONS ====================== */
+
+input[type="submit"], input[type="reset"] {
+    width:100%;
+    padding:13px;
+    margin-top:10px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ff00ff,#3700ff);
+    color:white;
+    font-size:17px;
+    border:none;
+    box-shadow:0 0 20px rgba(255,0,255,.3);
+    cursor:pointer;
+}
+
+/* ---------------- SUCCESS POPUP ---------------- */
+
+#success-popup {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    width: 350px;
+    padding: 25px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 18px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    color: white;
+    box-shadow: 0 0 25px #ff00ff;
+    transition: 0.4s ease;
+    pointer-events: none;
+
+    z-index: 999999;
+}
+
+#success-popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
+
+#success-popup h2 {
+    margin: 0 0 10px;
+    color: #ffccff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+#success-popup button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: linear-gradient(135deg, #ff00ff, #3700ff);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- Galaxy Layers -->
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+<div id="nebula"></div>
+<div id="shooting-star"></div>
+
+<!-- SUCCESS POPUP -->
+<div id="success-popup">
+    <h2>✔ Form Submitted!</h2>
+    <p>Your form was submitted successfully.</p>
+    <button onclick="closeSuccess()">OK</button>
+</div>
+
+<!-- FORM -->
+<form action="" onsubmit="return FormValidation()">
+    <h1>Registration Form</h1>
+
+    <label>Name:</label>
+    <input type="text" id="name">
+    <span id="name-error" class="error_message"></span><br>
+
+    <label>Password:</label>
+    <input type="password" id="password">
+    <span id="password-error" class="error_message"></span><br>
+
+    <label>Email:</label>
+    <input type="email" id="email">
+    <span id="email-error" class="error_message"></span><br>
+
+    <label>Course:</label>
+    <select id="course">
+        <option value="">- - - - - - -  - select - - - - - - </option>
+        <option>Java Full Stack</option>
+        <option>Python Full Stack</option>
+        <option>MERN Stack</option>
+        <option>Data Science</option>
+        <option>Manual Testing</option>
+        <option>Data Analytics</option>
+        <option>Automation Testing</option>
+    </select>
+    <span id="course-error" class="error_message"></span><br>
+
+    <label>College:</label>
+    <textarea id="college"></textarea><br>
+
+    <input type="checkbox" id="agree"> <label for="agree">I Agree</label>
+    <span id="checkbox-error" class="error_message"></span>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+
+</form>
+
+<!-- ================= JS VALIDATION + SUCCESS POPUP + AUTO RESET ================ -->
+
+<script>
+function FormValidation() {
+
+    let name = document.getElementById('name').value;
+    let password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let course = document.getElementById('course').value;
+    let agree = document.getElementById('agree').checked;
+
+    document.getElementById('name-error').textContent = "";
+    document.getElementById('password-error').textContent = "";
+    document.getElementById('email-error').textContent = "";
+    document.getElementById('course-error').textContent = "";
+    document.getElementById('checkbox-error').textContent = "";
+
+    let valid = true;
+
+    if (name.trim() === "") { 
+        document.getElementById('name-error').textContent = "Name required"; 
+        valid = false; 
+    }
+
+    if (password.length < 6) { 
+        document.getElementById('password-error').textContent = "Min 6 characters"; 
+        valid = false; 
+    }
+
+    if (!email.includes("@")) { 
+        document.getElementById('email-error').textContent = "Invalid email"; 
+        valid = false; 
+    }
+
+    if (course === "") { 
+        document.getElementById('course-error').textContent = "Select a course"; 
+        valid = false; 
+    }
+
+    if (!agree) { 
+        document.getElementById('checkbox-error').textContent = "Accept terms"; 
+        valid = false; 
+    }
+
+    /* ------------ If Form is Valid ------------ */
+    if (valid) {
+
+        // Show popup
+        document.getElementById("success-popup").classList.add("show");
+
+        // RESET FORM after submit
+        document.querySelector("form").reset();
+
+        // Clear all error messages
+        document.querySelectorAll(".error_message").forEach(el => el.textContent = "");
+    }
+
+    return false; // Prevent page reload
+}
+
+/* -------- Close Popup -------- */
+function closeSuccess() {
+    document.getElementById("success-popup").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
