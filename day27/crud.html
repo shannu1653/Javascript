@@ -5,142 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form With Table</title>
     <style>
-        body {
-            font-family: Arial;
-            padding: 20px;
-            
-        }
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        padding: 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .form-box {
-            max-width: 400px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            margin: auto;
-        }
+    /* FORM BOX */
+    .form-box {
+        width: 100%;
+        max-width: 450px;
+        padding: 25px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        margin-bottom: 25px;
+        text-align: center;
+    }
 
-        label {
-            display: block;
-            margin-top: 10px;
-        }
+    .form-box h2 {
+        margin-bottom: 10px;
+        color: #333;
+    }
 
-        input {
-            width: 97%;
-            padding: 8px;
-            margin-top: 5px;
-        }
+    label {
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        margin-top: 12px;
+        color: #333;
+    }
 
-        button {
-            margin-top: 15px;
-            width: 100%;
-            padding: 10px;
-            background: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #aaa;
+        border-radius: 8px;
+        margin-top: 5px;
+        transition: 0.3s;
+    }
 
+    input:focus {
+        border-color: #2193b0;
+        transform: scale(1.02);
+        outline: none;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: #2193b0;
+        color: white;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #17627a;
+        transform: scale(1.03);
+    }
+
+    /* TABLE STYLE */
+    table {
+        width: 90%;
+        max-width: 900px;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        border-collapse: collapse;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    th {
+        background: #2193b0;
+        color: white;
+        padding: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    tr:hover td {
+        background: #f1faff;
+    }
+
+    /* ACTION BUTTONS */
+    .action-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: 0.2s;
+    }
+
+    .edit-btn {
+        background: #ffb74d;
+        color: #000;
+    }
+
+    .edit-btn:hover {
+        background: #ffa726;
+        transform: scale(1.1);
+    }
+
+    .delete-btn {
+        background: #e53935;
+        color: white;
+    }
+
+    .delete-btn:hover {
+        background: #c62828;
+        transform: scale(1.1);
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 600px) {
         table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: center;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .action-btn {
-            padding: 5px 10px;
-            cursor: pointer;
-            margin: 2px;
+            padding: 4px 8px;
+            font-size: 10px;
         }
 
-        .edit-btn { background: orange; }
-        .delete-btn { background: red; color: white; }
-
-
-        /* ---------------------------
-           📱 MOBILE (up to 600px)
-        ----------------------------- */
-       @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .form-box {
-        width: 100%;
-        padding: 15px;
-    }
-
-    input, button {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    table, th, td {
-        font-size: 12px;
-        padding: 6px;
-    }
-
-    /* FIX BUTTONS BREAKING OUTSIDE */
-    .action-btn {
-        padding: 3px 6px;
-        font-size: 10px;
-        width: 45px;  /* very small buttons */
-    }
-
-    .edit-btn { background: orange; }
-    .delete-btn { background: red; color: white; }
-
-    td:nth-child(6) {   /* Actions column */
-        display: flex;
-        gap: 5px;
-        justify-content: center;
-    }
-}
-
-
-
-        /* ---------------------------
-           📱📱 TABLETS (600px–900px)
-        ----------------------------- */
-        @media (min-width: 600px) and (max-width: 900px) {
-            .form-box {
-                max-width: 600px;
-            }
-
-            input, button {
-                font-size: 16px;
-                padding: 10px;
-            }
-
-            table, th, td {
-                font-size: 14px;
-                padding: 8px;
-            }
-
-            .action-btn {
-                font-size: 13px;
-                padding: 6px 10px;
-            }
+        td:nth-child(6) {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
         }
-    </style>
+    }
+</style>
+
 </head>
 <body>
 
