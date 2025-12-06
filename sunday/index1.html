@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Advanced Typing App</title>
+<style>
+    body {
+        background: #0d0d0d;
+        color: #00eaff;
+        font-family: "Courier New", monospace;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        transition: 0.3s;
+    }
+
+    #container {
+        margin-bottom: 40px;
+    }
+
+    #cursor {
+        animation: blink 0.6s infinite alternate;
+    }
+
+    @keyframes blink {
+        from {opacity: 1;}
+        to {opacity: 0;}
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 5px;
+        background: #00eaff;
+        border: none;
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    button:hover {
+        background: white;
+    }
+
+    .light {
+        background: #ffffff;
+        color: #222222;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="container">
+  <span id="text"></span><span id="cursor">|</span>
+</div>
+
+<!-- Buttons -->
+<button onclick="typewriter.pause()">⏸ Pause</button>
+<button onclick="typewriter.resume()">▶ Resume</button>
+<button onclick="typewriter.restart()">🔄 Restart</button>
+<button onclick="toggleTheme()">🌗 Light/Dark</button>
+
+<!-- Sound effect -->
+<audio id="keySound" src="https://assets.mixkit.co/sfx/preview/mixkit-typewriter-soft-click-1125.mp3"></audio>
+
+<script>
+
+// =============================================
+//  PRO TYPEWRITER ENGINE (OOP Version)
+// =============================================
+class Typewriter {
+
+    constructor(sentences, speed = 120) {
+        this.sentences = sentences;
+        this.index = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        this.speed = speed;
+        this.timer = null;
+
+        this.textElement = document.getElementById("text");
+        this.sound = document.getElementById("keySound");
+    }
+
+    playSound() {
+        this.sound.currentTime = 0;
+        this.sound.play();
+    }
+
+    start() {
+        this.type();
+    }
+
+    type() {
+        let current = this.sentences[this.index];
+
+        if (this.isDeleting) {
+            this.textElement.innerText = current.substring(0, this.charIndex--);
+            this.speed = 80;
+        } else {
+            this.textElement.innerText = current.substring(0, this.charIndex++);
+            this.speed = 120 + Math.random() * 100;
+            this.playSound();
+        }
+
+        // Word completed
+        if (!this.isDeleting && this.charIndex === current.length) {
+            this.isDeleting = true;
+            this.speed = 1500; // delay before deleting
+        }
+
+        // Word fully deleted
+        if (this.isDeleting && this.charIndex === 0) {
+            this.isDeleting = false;
+            this.index = (this.index + 1) % this.sentences.length;
+            this.speed = 600;
+        }
+
+        this.timer = setTimeout(() => this.type(), this.speed);
+    }
+
+    pause() {
+        clearTimeout(this.timer);
+    }
+
+    resume() {
+        this.type();
+    }
+
+    restart() {
+        clearTimeout(this.timer);
+        this.index = 0;
+        this.charIndex = 0;
+        this.isDeleting = false;
+        this.textElement.innerText = "";
+        this.start();
+    }
+}
+
+
+// =============================================
+//  SENTENCES TO TYPE
+// =============================================
+let sentences = [
+  "Hello World!",
+  "This is the ALL-IN-ONE Typing App.",
+  "With typing & deleting animations.",
+  "Pause, Resume, Restart supported.",
+  "Random typing speeds for realism.",
+  "Light and Dark mode included.",
+  "Sound effects added!",
+  "Powered by setTimeout + recursion."
+];
+
+
+// =============================================
+// CREATE THE TYPEWRITER ENGINE
+// =============================================
+const typewriter = new Typewriter(sentences);
+typewriter.start();
+
+
+// =============================================
+//  LIGHT / DARK MODE
+// =============================================
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
+
+</script>
+
+</body>
+</html>
