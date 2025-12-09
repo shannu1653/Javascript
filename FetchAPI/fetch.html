@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch-api</title>
+</head>
+<body>
+    <script>
+
+        //getting data
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .catch(err=>console.log("Error",err))
+
+
+        //posting data
+        // fetch('https://jsonplaceholder.typicode.com/users',{
+        // method:"POST",
+        // headers:{
+        //     "content-type":"Application/json"
+        // },
+        // body:JSON.stringify(
+        //     {
+        //     name:"shannu",
+        //     email:'pentashannu@gamil.com'
+        //     }
+        // )
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .catch(err=>console.log("Error occured in post",err))
+
+
+        //put
+        // fetch('https://jsonplaceholder.typicode.com/users/1',{
+        //     method:'PUT',
+        //     headers:{
+        //         "content-type":'Application/json'
+        //     },
+        //     body:JSON.stringify({
+        //        name:"shannu",
+        //        username:'shann1653',
+        //        email:"pentashannu@2002"
+        //     })
+        // })
+        // .then(response=>response.json())
+        // .then(data=>console.log(data))
+        // .catch(err=>console.log("Error occured in post",err))
+
+        //PATCH//
+        // fetch('https://jsonplaceholder.typicode.com/users/1',{
+        //     method:'PATCH',
+        //     headers:{
+        //         "content-type":'Application/json'
+        //     },
+        //     body:JSON.stringify({
+        //        name:"shannu",
+        //        username:'shann1653',
+        //        email:"pentashannu@2002"
+        //     })
+        // })
+        // .then(response=>response.json())
+        // .then(data=>console.log(data))
+        // .catch(err=>console.log("Error occured in post",err))      
+         
+        
+        
+        fetch('https://jsonplaceholder.typicode.com/users/1',{
+            method:'DELETE',
+        })
+        .then(response=>response.json())
+        .then(data=>console.log('DELETE SUCCESFULLY'))
+        .catch(err=>console.log("Error occured in post",err))
+
+
+
+
+
+
+    </script>
+</body>
+</html>
