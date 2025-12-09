@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live API</title>
+</head>
+<body>
+    <script>
+        // GET data
+        // fetch('http://localhost:3000/students')
+        // .then(res=>res.json())
+        // .then(data=>console.log(data))
+        // .catch(err=>console.log("error happens in the get"))
+
+       
+        //post data
+        // fetch('http://localhost:3000/students',{
+        //     method:"POST",
+        //     headers:{"conternt-type":"Application/json"},
+        //     body:JSON.stringify({
+        //         "id": "2",
+        //         "name": "navven",
+        //         "email": "naveen2002@gmail.com",
+        //         "age": 27,
+        //         "height": "6ft"
+        //     })
+        // })
+        // .then(response => response.json())
+        // .then(data => console.log(data))
+        // .catch(err=>console.log("Error occured in GET",err))
+
+
+        fetch('http://localhost:3000/students/2',{
+            method:"PUT",
+            headers:{"conternt-type":"Application/json"},
+            body:JSON.stringify({
+                // "id": "2",
+                "name": "navven123",
+                "email": "naveen2002@gmail.com",
+                "age": 27,
+                "height": "6ft"
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(err=>console.log("Error occured in put",err))
+    </script>
+</body>
+</html>
