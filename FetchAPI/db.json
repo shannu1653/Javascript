@@ -1,0 +1,11 @@
+{
+    "students":[
+        {
+            "id":1,
+            "name":"shannu",
+            "email":"shannu2002@gmail.com",
+            "age":27,
+            "height":"6ft"
+        }
+    ]
+}
